@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="selfFlow" doc:id="353b201c-169f-4e4a-9c28-dd229e526ee4" >
+		<set-payload value='#["message" : "Set Payload"]' doc:name="Set Payload" doc:id="4adf1fcd-599d-414e-b991-caee710cde9d" />
+	</flow>
+</mule>

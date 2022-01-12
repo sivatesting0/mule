@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="bb635553-2c87-456c-863c-23d1cdf1f3b8" >
+		<http:listener-connection host="0.0.0.0" port="8082" />
+	</http:listener-config>
+	<flow name="testFlow" doc:id="025a6f6e-c87e-4846-af1f-fa083b5eb9be" >
+		<http:listener doc:name="Listener" doc:id="50e0989f-0ea6-4a36-bae7-2683dcf39914" config-ref="HTTP_Listener_config" path="/send"/>
+		<flow-ref doc:name="Flow Reference" doc:id="bfd3ef1c-1861-41a9-8550-04edf9b6c927" name="selfFlow" targetValue="#[payload]"/>
+		<ee:transform doc:name="Transform Message" doc:id="4abd9d4e-624c-4fb0-9e57-ccce7c538332" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+<<<<<<< HEAD
+		<logger level="INFO" doc:name="Logger" doc:id="208d44e9-3f53-4bf9-8740-33bf5de744c7" message=":::::::::::::::::::::::::::#[payload]"/>
+=======
+		<logger level="INFO" doc:name="Logger" doc:id="208d44e9-3f53-4bf9-8740-33bf5de744c7" message="::::::#[payload]"/>
+		<logger level="INFO" doc:name="Logger" doc:id="208d44e9-3f53-4bf9-8740-33bf5de744c7" message="::::::#[payload."ram"]"/>
+>>>>>>> feature-demo
+	
+</flow>
+</mule>
